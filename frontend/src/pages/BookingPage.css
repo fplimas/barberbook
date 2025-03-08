@@ -1,0 +1,504 @@
+.booking-page {
+  padding: 2rem 0;
+  background-color: #121212;
+  min-height: calc(100vh - 100px);
+}
+
+.booking-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #252525;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  border: 1px solid #eeab00; /* Borda amarela */
+}
+
+.booking-header {
+  padding: 2rem;
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #eeab00; /* Borda amarela */
+  text-align: center;
+}
+
+.booking-header h1 {
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
+}
+
+.booking-header p {
+  color: #ffffff;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Progresso de Agendamento */
+.booking-progress {
+  display: flex;
+  padding: 1.5rem 2rem;
+  background-color: #2a2a2a;
+  border-bottom: 1px solid #444444;
+}
+
+.progress-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.progress-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background-color: #444444;
+  z-index: 1;
+}
+
+.progress-step.active:not(:last-child)::after,
+.progress-step.completed:not(:last-child)::after {
+  background-color: #eeab00; /* Linha amarela para etapas ativas/completas */
+}
+
+.step-number {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #444444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.progress-step.active .step-number,
+.progress-step.completed .step-number {
+  background-color: #eeab00; /* Círculo amarelo para etapas ativas/completas */
+  color: #111111;
+}
+
+.progress-step.completed .step-number {
+  background-color: #eeab00; /* Círculo amarelo para etapas completas */
+  color: #111111;
+}
+
+.step-name {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  margin-top: 0.5rem;
+}
+
+.progress-step.active .step-name,
+.progress-step.completed .step-name {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Conteúdo de Agendamento */
+.booking-content {
+  padding: 2rem;
+}
+
+.booking-step {
+  margin-bottom: 2.5rem;
+}
+
+.booking-step h2 {
+  font-size: 1.6rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+
+.booking-step h2 svg {
+  color: #eeab00; /* Ícone amarelo */
+}
+
+.booking-instruction {
+  color: #e0e0e0;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Grade de Serviços */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.service-item {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.service-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  border-color: #eeab00; /* Borda amarela no hover */
+}
+
+.service-item.selected {
+  border-color: #eeab00; /* Borda amarela quando selecionado */
+  background-color: rgba(238, 171, 0, 0.1); /* Fundo amarelo sutil */
+}
+
+.service-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #eeab00; /* Ícone amarelo */
+}
+
+.service-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.service-description {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.service-price {
+  font-weight: 600;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.service-duration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #e0e0e0;
+  font-size: 0.9rem;
+}
+
+/* Grade de Barbeiros */
+.barbers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.barber-item {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.barber-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  border-color: #eeab00; /* Borda amarela no hover */
+}
+
+.barber-item.selected {
+  border-color: #eeab00; /* Borda amarela quando selecionado */
+  background-color: rgba(238, 171, 0, 0.1); /* Fundo amarelo sutil */
+}
+
+.barber-avatar {
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.barber-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1.2); /* Aumentando o brilho */
+}
+
+.barber-info {
+  padding: 1rem;
+  text-align: center;
+}
+
+.barber-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.barber-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.barber-rating svg {
+  color: #eeab00; /* Estrelas amarelas */
+}
+
+.barber-specialty {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+}
+
+/* Calendário e Horários */
+.date-time-selection {
+  margin-bottom: 2rem;
+}
+
+.dates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.date-item {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.date-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-color: #eeab00; /* Borda amarela no hover */
+}
+
+.date-item.selected {
+  border-color: #eeab00; /* Borda amarela quando selecionado */
+  background-color: rgba(238, 171, 0, 0.1); /* Fundo amarelo sutil */
+}
+
+.date-weekday {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+}
+
+.date-day {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.date-month {
+  font-size: 0.8rem;
+  color: #e0e0e0;
+  margin-top: 0.25rem;
+}
+
+.times-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.time-item {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 0.75rem;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.time-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-color: #eeab00; /* Borda amarela no hover */
+}
+
+.time-item.selected {
+  border-color: #eeab00; /* Borda amarela quando selecionado */
+  background-color: rgba(238, 171, 0, 0.1); /* Fundo amarelo sutil */
+}
+
+.time-item.unavailable {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #2a2a2a;
+  color: #666666;
+}
+
+/* Resumo da Reserva */
+.booking-summary {
+  background-color: #2a2a2a;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #eeab00; /* Borda amarela */
+}
+
+.summary-title {
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.summary-item {
+  display: flex;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.summary-label {
+  flex: 0 0 120px;
+  font-weight: 600;
+  color: #eeab00; /* Texto amarelo */
+}
+
+.summary-value {
+  flex: 1;
+}
+
+.total-price {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 1.5rem 0;
+  text-align: right;
+}
+
+.booking-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.btn-confirm {
+  padding: 0.75rem 1.5rem;
+  background-color: #eeab00;
+  color: #111111;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-confirm:hover {
+  background-color: #ffba00;
+}
+
+.btn-cancel {
+  padding: 0.75rem 1.5rem;
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #eeab00;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background-color: rgba(238, 171, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .booking-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .booking-header p {
+    font-size: 1rem;
+  }
+  
+  .booking-content {
+    padding: 1.5rem;
+  }
+  
+  .services-grid,
+  .barbers-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+  
+  .dates-grid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
+  
+  .times-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+  
+  .booking-actions {
+    flex-direction: column;
+  }
+  
+  .btn-confirm,
+  .btn-cancel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .booking-progress {
+    display: none;
+  }
+  
+  .services-grid,
+  .barbers-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .dates-grid,
+  .times-grid {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  }
+  
+  .summary-item {
+    flex-direction: column;
+  }
+  
+  .summary-label {
+    margin-bottom: 0.5rem;
+  }
+} 

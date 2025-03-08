@@ -1,0 +1,355 @@
+.barbers-page {
+  padding: 2rem 0;
+  background-color: #121212;
+  min-height: calc(100vh - 100px);
+}
+
+.barbers-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.barbers-header h1 {
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.barbers-header p {
+  color: #ffffff;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Filtros e Busca */
+.barbers-filter {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.search-box {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.search-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 1rem;
+  color: #eeab00;
+  font-size: 1.2rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 3rem;
+  border: 2px solid #eeab00;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  background-color: #252525;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(238, 171, 0, 0.3);
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background-color: #252525;
+  border: 1px solid #444444;
+  border-radius: 50px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.filter-btn:hover {
+  background-color: #333333;
+  border-color: #eeab00;
+}
+
+.filter-btn.active {
+  background-color: #eeab00;
+  color: #111111;
+  border-color: #eeab00;
+  font-weight: 600;
+}
+
+/* Lista de Barbeiros */
+.barbers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.barber-card {
+  background-color: #252525;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #444444;
+  display: flex;
+  flex-direction: column;
+}
+
+.barber-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border-color: #eeab00;
+}
+
+.barber-card-image {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid #eeab00;
+}
+
+.barber-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  filter: brightness(1.2);
+}
+
+.barber-card:hover .barber-card-image img {
+  transform: scale(1.05);
+}
+
+.barber-distance-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid #eeab00;
+}
+
+.barber-card-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.barber-card h3 {
+  font-size: 1.3rem;
+  margin: 0 0 0.75rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.barber-info {
+  flex: 1;
+  margin-bottom: 1.25rem;
+}
+
+.barber-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.barber-rating svg {
+  color: #eeab00;
+}
+
+.barber-specialty {
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.barber-address {
+  color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.barber-card .btn {
+  background-color: #eeab00;
+  color: #111111;
+  font-weight: 600;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+}
+
+.barber-card .btn:hover {
+  background-color: #ffba00;
+}
+
+/* Estado vazio e de erro */
+.no-results {
+  background-color: #252525;
+  border-radius: 8px;
+  padding: 3rem;
+  text-align: center;
+  grid-column: 1 / -1;
+  border: 1px solid #eeab00;
+}
+
+.no-results h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.no-results p {
+  color: #e0e0e0;
+  margin-bottom: 1rem;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem;
+  background-color: #252525;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid #eeab00;
+}
+
+.loading-spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 0.25rem solid #e0e0e0;
+  border-top-color: #eeab00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+.loading-container p {
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.error-container {
+  text-align: center;
+  padding: 3rem;
+  background-color: #252525;
+  border-radius: 8px;
+  max-width: 700px;
+  margin: 0 auto;
+  border: 1px solid #eeab00;
+}
+
+.error-container h2 {
+  color: #eeab00;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.error-container p {
+  color: #ffffff;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.error-container .btn {
+  background-color: #eeab00;
+  color: #111111;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.error-container .btn:hover {
+  background-color: #ffba00;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .barbers-list {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .barbers-header h1 {
+    font-size: 2rem;
+  }
+  
+  .barbers-filter {
+    gap: 1rem;
+  }
+  
+  .filter-buttons {
+    gap: 0.5rem;
+  }
+  
+  .filter-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .barbers-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .barber-card-image {
+    height: 180px;
+  }
+  
+  .barber-card-content {
+    padding: 1rem;
+  }
+  
+  .barber-card h3 {
+    font-size: 1.2rem;
+  }
+} 

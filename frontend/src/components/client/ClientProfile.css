@@ -1,0 +1,894 @@
+.client-profile {
+  width: 100%;
+  background-color: #252525;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  color: #f5f5f5;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.client-profile.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  border-top-color: #009688;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Cabeçalho do Perfil */
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  background-color: #333;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #009688;
+  position: relative;
+  border: 4px solid #252525;
+  overflow: hidden;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-change-avatar {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #009688;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-change-avatar:hover {
+  background-color: #00796b;
+}
+
+.profile-summary {
+  flex: 1;
+}
+
+.profile-summary h1 {
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+}
+
+.client-details {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.client-detail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #bbb;
+  font-size: 0.95rem;
+}
+
+.client-detail svg {
+  color: #009688;
+}
+
+.profile-actions {
+  display: flex;
+  align-items: center;
+}
+
+.btn-edit-profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #009688;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-edit-profile:hover {
+  background-color: #00796b;
+}
+
+.edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-cancel, 
+.btn-save {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.btn-cancel {
+  background-color: #444;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: #555;
+}
+
+.btn-save {
+  background-color: #009688;
+  color: white;
+}
+
+.btn-save:hover {
+  background-color: #00796b;
+}
+
+.save-status {
+  padding: 10px 20px;
+  margin: 15px 20px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.save-status.success {
+  background-color: rgba(0, 150, 136, 0.2);
+  color: #4caf50;
+  border-left: 4px solid #4caf50;
+}
+
+.save-status.error {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+  border-left: 4px solid #f44336;
+}
+
+/* Tabs do Perfil */
+.profile-tabs {
+  display: flex;
+  background-color: #333;
+  padding: 0 20px;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+}
+
+.tab-btn {
+  background-color: transparent;
+  color: #bbb;
+  border: none;
+  padding: 15px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.tab-btn:hover {
+  color: #f5f5f5;
+}
+
+.tab-btn.active {
+  color: #009688;
+  font-weight: 500;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 3px;
+  background-color: #009688;
+  border-radius: 3px 3px 0 0;
+}
+
+.profile-content {
+  padding: 30px 20px;
+}
+
+/* Aba de Perfil */
+.profile-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.personal-info, 
+.address-info, 
+.payment-methods, 
+.notes-section {
+  background-color: #333;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.personal-info h3, 
+.address-info h3, 
+.payment-methods h3, 
+.notes-section h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+  color: #f5f5f5;
+  border-bottom: 1px solid #444;
+  padding-bottom: 15px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.info-item.full-width {
+  grid-column: 1 / -1;
+}
+
+.info-item label {
+  color: #bbb;
+  font-size: 0.9rem;
+}
+
+.info-item p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.info-item input,
+.notes-section textarea {
+  padding: 12px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #3d3d3d;
+  color: #f5f5f5;
+  font-size: 1rem;
+}
+
+.info-item input:focus,
+.notes-section textarea:focus {
+  outline: none;
+  border-color: #009688;
+  box-shadow: 0 0 0 1px #009688;
+}
+
+.address-row {
+  display: flex;
+  gap: 15px;
+}
+
+.street-input {
+  flex: 3;
+}
+
+.number-input {
+  flex: 1;
+}
+
+.payment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.payment-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #3d3d3d;
+  border-radius: 6px;
+  padding: 15px;
+  position: relative;
+}
+
+.payment-item.default {
+  border: 1px solid #009688;
+}
+
+.payment-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #f5f5f5;
+}
+
+.payment-details {
+  flex: 1;
+}
+
+.payment-name {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.btn-remove-payment {
+  background-color: transparent;
+  color: #f44336;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.btn-remove-payment:hover {
+  background-color: rgba(244, 67, 54, 0.1);
+}
+
+.btn-add-payment {
+  background-color: transparent;
+  color: #009688;
+  border: 1px dashed #009688;
+  border-radius: 5px;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 0.95rem;
+}
+
+.btn-add-payment:hover {
+  background-color: rgba(0, 150, 136, 0.1);
+}
+
+.notes-content {
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.notes-section textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Aba de Agendamentos */
+.appointments-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.appointment-section {
+  background-color: #333;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 20px;
+  border-bottom: 1px solid #444;
+  position: relative;
+}
+
+.section-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.collapsible {
+  cursor: pointer;
+}
+
+.arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+
+.arrow.down {
+  border-top: 8px solid #bbb;
+}
+
+.arrow.up {
+  border-bottom: 8px solid #bbb;
+}
+
+.appointment-list {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.appointment-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 20px;
+  background-color: #3d3d3d;
+  border-radius: 8px;
+  padding: 20px;
+  align-items: center;
+}
+
+.appointment-date {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #444;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.date-day {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.date-month {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.appointment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.appointment-info h4 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.appointment-barber,
+.appointment-time,
+.appointment-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #ccc;
+  margin: 0;
+}
+
+.appointment-status {
+  display: inline-block;
+  background-color: #444;
+  color: #ccc;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.appointment-price {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #009688;
+}
+
+.appointment-actions,
+.appointment-rating {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-reschedule,
+.btn-cancel-appointment,
+.btn-rate,
+.btn-new-appointment {
+  background-color: #444;
+  color: #f5f5f5;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 0.9rem;
+}
+
+.btn-reschedule:hover,
+.btn-rate:hover,
+.btn-new-appointment:hover {
+  background-color: #555;
+}
+
+.btn-cancel-appointment {
+  background-color: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}
+
+.btn-cancel-appointment:hover {
+  background-color: rgba(244, 67, 54, 0.3);
+}
+
+.appointment-rating p {
+  margin: 0 0 5px 0;
+  font-size: 0.9rem;
+  color: #bbb;
+  text-align: center;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+}
+
+.star-filled {
+  color: #ffd700;
+}
+
+.star-half {
+  color: #ffd700;
+}
+
+.star-empty {
+  color: #555;
+}
+
+.no-appointments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 30px 0;
+  color: #999;
+  text-align: center;
+}
+
+.btn-new-appointment {
+  background-color: #009688;
+  color: white;
+}
+
+.btn-new-appointment:hover {
+  background-color: #00796b;
+}
+
+/* Aba de Preferências */
+.preferences-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.favorite-barbers,
+.favorite-services,
+.notification-preferences {
+  background-color: #333;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.favorite-barbers h3,
+.favorite-services h3,
+.notification-preferences h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+  color: #f5f5f5;
+  border-bottom: 1px solid #444;
+  padding-bottom: 15px;
+}
+
+.favorites-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.favorite-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #3d3d3d;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.favorite-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: #009688;
+}
+
+.favorite-info {
+  flex: 1;
+}
+
+.favorite-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+}
+
+.favorite-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-schedule {
+  background-color: #009688;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-schedule:hover {
+  background-color: #00796b;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.service-tag {
+  background-color: #3d3d3d;
+  color: #009688;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.notification-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.notification-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3d3d3d;
+  border-radius: 8px;
+  padding: 15px 20px;
+}
+
+.notification-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.notification-info svg {
+  color: #009688;
+  font-size: 1.2rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #555;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #009688;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.no-favorites {
+  color: #999;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .profile-header {
+    gap: 15px;
+  }
+  
+  .profile-avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .appointment-card {
+    grid-template-columns: auto 1fr;
+    gap: 15px;
+  }
+  
+  .appointment-price {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    margin-left: 80px;
+  }
+  
+  .appointment-actions,
+  .appointment-rating {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .client-details {
+    justify-content: center;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .appointment-actions,
+  .appointment-rating {
+    flex-direction: column;
+  }
+  
+  .profile-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .tab-btn {
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+  }
+  
+  .favorite-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .favorite-actions {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-content {
+    padding: 20px 15px;
+  }
+  
+  .appointment-card {
+    padding: 15px;
+    gap: 10px;
+  }
+  
+  .appointment-date {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .appointment-price {
+    margin-left: 60px;
+  }
+  
+  .service-tags {
+    justify-content: center;
+  }
+  
+  .notification-option {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .notification-info {
+    width: 100%;
+  }
+  
+  .switch {
+    align-self: flex-end;
+  }
+} 

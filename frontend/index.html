@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento de Beleza - Booksy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Agendamento de Beleza</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Cadastro de Cliente e Barbeiro -->
+    <section id="login">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" placeholder="Digite seu e-mail" required>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" placeholder="Digite sua senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </section>
+
+    <!-- Cadastro de Serviços e Agendamento -->
+    <section id="services">
+        <h2>Escolha seus serviços</h2>
+        <div class="service">
+            <label for="haircut">Corte de Cabelo - R$ 50,00</label>
+            <input type="checkbox" id="haircut" name="service" value="Corte de Cabelo">
+        </div>
+        <div class="service">
+            <label for="beard">Barba - R$ 30,00</label>
+            <input type="checkbox" id="beard" name="service" value="Barba">
+        </div>
+        <div class="service">
+            <label for="combo">Combo: Corte + Barba - R$ 75,00</label>
+            <input type="checkbox" id="combo" name="service" value="Combo">
+        </div>
+
+        <button id="schedule">Agendar</button>
+    </section>
+
+    <!-- Perfil de Cliente e Barbeiro -->
+    <section id="profile" class="hidden">
+        <h2>Perfil</h2>
+        <p><strong>Nome:</strong> <span id="profile-name"></span></p>
+        <p><strong>E-mail:</strong> <span id="profile-email"></span></p>
+        <button id="edit-profile">Editar Perfil</button>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2025 Agendamento Beleza - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
