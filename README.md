@@ -16,7 +16,7 @@ BarberBook é uma aplicação web completa para gerenciamento de barbearias, per
 
 ### Para Barbeiros
 - Dashboard com visão geral de agendamentos e receita
-- Perfil profissional personalizado (estilo Booksy)
+- Perfil profissional personalizado 
 - Gestão de horários e disponibilidade
 - Gerenciamento de clientes com sistema de fidelidade
 - Controle financeiro e relatórios
@@ -120,4 +120,4 @@ Para mais informações sobre este projeto, entre em contato.
 
 ---
 
-Desenvolvido com 💈 para o mercado de barbearias. 
+Desenvolvido por Filipe Fernando para o mercado de barbearias. 
